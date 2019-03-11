@@ -29,6 +29,41 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_1"
         android:background="@color/colorBlack"
-        android:layout_below="@id/lnl1_profile"/>
+        android:layout_below="@id/lnl1_profile" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/lnl1_profile"
+        android:padding="@dimen/dimen_12"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/profile_imgProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_account_circle_black_48dp"/>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+
+
+            <Button
+                android:id="@+id/profile_editProfile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30"
+                android:text="Edit Profile"
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/dimen_20"
+                android:layout_marginEnd="@dimen/dimen_12"
+                android:background="@drawable/bg_button_edit_profile"/>
+
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
 
 </RelativeLayout>
