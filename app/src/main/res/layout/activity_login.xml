@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/anim_login"
+    android:id="@+id/relativeLogin"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/login_iv_logo"
+            android:layout_width="100dp"
+            android:layout_height="97dp"
+            android:src="@drawable/logo_insta"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/login_ed_login"
+            android:layout_marginTop="30dp"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:hint="E-mail:"
+            android:textColorHint="@android:color/white"
+            android:background="@drawable/bg_login_edit"
+            android:layout_below="@id/login_iv_logo"/>
+
+        <EditText
+            android:id="@+id/login_ed_senha"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:hint="Senha:"
+            android:textColorHint="@android:color/white"
+            android:background="@drawable/bg_login_edit"
+            android:layout_below="@id/login_ed_login"/>
+
+        <Button
+            android:id="@+id/login_btn_login"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textColor="@color/colorBlueGray100"
+            android:textAllCaps="false"
+            android:background="@drawable/ripple_btn_login"
+            android:layout_below="@+id/login_ed_senha"/>
+        <TextView
+            android:id="@+id/login_tv_forgot_pass"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esqueci minha senha!"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/login_btn_login"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/login_tv_or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OU"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/login_tv_forgot_pass"
+            android:fontFamily="sans-serif-black"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/login_tv_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastre-se!"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/login_tv_or"
+            android:textAlignment="center"/>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
