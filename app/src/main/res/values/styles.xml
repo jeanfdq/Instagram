@@ -9,4 +9,11 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="ThemeAlertLogout" >
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
 </resources>

@@ -39,11 +39,12 @@
         android:padding="@dimen/dimen_12"
         android:gravity="center_vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_imgProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:src="@drawable/round_account_circle_black_48dp"/>
+
 
         <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->

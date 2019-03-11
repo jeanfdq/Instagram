@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.instagram.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.instagram.util.CodeEncodeBase64;
 import com.instagram.util.ValidaEmail;
 import com.parse.ParseException;
@@ -19,7 +21,7 @@ import com.parse.SignUpCallback;
 
 public class CreatePerson extends AppCompatActivity {
 
-	private EditText edtNome, edtEmail, edtSenha;
+	private EditText edtFirstNome, edtLastNome, edtEmail, edtPhone, edtSenha;
 	private Button btnCadastrar;
 	private TextView tvLogin;
 
@@ -29,13 +31,21 @@ public class CreatePerson extends AppCompatActivity {
 		setContentView(R.layout.activity_create_person);
 
 		//Mapeamento dos campos--------------------------------------
-		edtNome     = findViewById(R.id.createperson_edt_name);
+		edtFirstNome= findViewById(R.id.createperson_edt_Firstname);
+		edtLastNome = findViewById(R.id.createperson_edt_Lastname);
 		edtEmail    = findViewById(R.id.createperson_edt_email);
+		edtPhone    = findViewById(R.id.createperson_edt_phonenumber);
 		edtSenha    = findViewById(R.id.createperson_edt_password);
 
 		btnCadastrar= findViewById(R.id.createperson_btn_cad);
 
 		tvLogin     = findViewById(R.id.createperson_tv_login);
+		//-----------------------------------------------------------
+
+		//Colocando máscara no telefone------------------------------
+		SimpleMaskFormatter maskPhone = new SimpleMaskFormatter("+NN (NN) N NNNN-NNNN");
+		MaskTextWatcher mtwTelefone = new MaskTextWatcher(edtPhone, maskPhone);
+		edtPhone.addTextChangedListener(mtwTelefone);
 		//-----------------------------------------------------------
 
 		btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +71,37 @@ public class CreatePerson extends AppCompatActivity {
 
 	private boolean cadastraPessoa(){
 
-
+		String firstName= edtFirstNome.getText().toString().trim();
+		String lastName = edtLastNome.getText().toString().trim();
 		String email    = edtEmail.getText().toString().trim();
+		String phone    = edtPhone.getText().toString().trim();
 		String senha    = edtSenha.getText().toString().trim();
 		boolean IsErro  = false;
 
+		if (firstName.isEmpty()){
+			edtFirstNome.setError("Informe seu nome!");
+			IsErro = true;
+		}
+		if (firstName.length()<2){
+			edtFirstNome.setError("Primeiro nome inválido!");
+			IsErro = true;
+		}
+		if (lastName.isEmpty()){
+			edtLastNome.setError("Informe seu Sobrenome!");
+			IsErro = true;
+		}
+		if (lastName.length()<2){
+			edtLastNome.setError("Sobrenome nome inválido!");
+			IsErro = true;
+		}
+
 		if (email.isEmpty()){
 			edtEmail.setError("Informe seu e-mail!");
+			IsErro = true;
+		}
+
+		if (phone.isEmpty()){
+			edtPhone.setError("Informe seu celular!");
 			IsErro = true;
 		}
 
@@ -85,10 +119,15 @@ public class CreatePerson extends AppCompatActivity {
 
 		if (!IsErro){
 
+			String CompleteName = firstName+" "+lastName;
+
 			ParseUser user = new ParseUser();
 
 			String senhaCript = CodeEncodeBase64.Encode64(senha);
-
+			user.put("firstname",firstName);
+			user.put("lastname",lastName);
+			user.put("completename",CompleteName);
+			user.put("phonenumber",phone.replace(" ","").replace("(","").replace(")","").replace("-",""));
 			user.setEmail(email);
 			user.setUsername(email);
 			user.setPassword(senhaCript);
