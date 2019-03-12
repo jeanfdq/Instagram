@@ -5,23 +5,60 @@
     tools:context="com.instagram.fragments.FragmentProfile">
 
     <LinearLayout
-        android:id="@+id/lnl1_profile"
+        android:id="@+id/profile_lnl1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_42"
-        android:orientation="horizontal"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
 
-        <include android:id="@+id/profile_toolbar" layout="@layout/toolbar_profile"
+        <include
+            android:id="@+id/profile_toolbar"
+            layout="@layout/toolbar_profile"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <ImageButton
             android:id="@+id/profile_logout"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="wrap_content"
-            android:src="@drawable/round_power_settings_new_black_24"
+            android:layout_weight="0.3"
             android:backgroundTint="@color/colorWhite"
-            android:layout_weight="0.3"/>
+            android:src="@drawable/round_power_settings_new_black_24" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/profile_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:layout_below="@id/profile_lnl1"
+        android:background="@color/colorBlack" />
+
+    <LinearLayout
+        android:id="@+id/profile_lnl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_divider1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_12">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_imgProfile"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/round_account_circle_black_48dp" />
+
+        <Button
+            android:id="@+id/profile_editProfile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginEnd="@dimen/dimen_12"
+            android:background="@drawable/bg_button_edit_profile"
+            android:text="Edit Profile"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
@@ -29,42 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_1"
         android:background="@color/colorBlack"
-        android:layout_below="@id/lnl1_profile" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/lnl1_profile"
-        android:padding="@dimen/dimen_12"
-        android:gravity="center_vertical">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_imgProfile"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:src="@drawable/round_account_circle_black_48dp"/>
-
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
-
-
-
-            <Button
-                android:id="@+id/profile_editProfile"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_30"
-                android:text="Edit Profile"
-                android:textAllCaps="false"
-                android:layout_marginStart="@dimen/dimen_20"
-                android:layout_marginEnd="@dimen/dimen_12"
-                android:background="@drawable/bg_button_edit_profile"/>
-
-        <!--</LinearLayout>-->
-
-    </LinearLayout>
+        android:layout_below="@id/profile_lnl2"/>
 
 </RelativeLayout>

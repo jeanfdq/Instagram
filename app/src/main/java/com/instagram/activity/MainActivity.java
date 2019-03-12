@@ -3,7 +3,6 @@ package com.instagram.activity;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 
 		//Toolbar---------------------------------------------------------------------------------------------------
 		setToolbar();
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 					case R.id.navigation_main_add_photos:
 						fragment = new FragmentShared();
-						hiddenToolbar(true);
+						hiddenToolbar(false);
 						break;
 
 					case R.id.navigation_main_perfil:
